@@ -1,6 +1,8 @@
 #!/bin/bash
 spotify_directory=~/spotify
 run_spotdl="pipenv run spotdl"
+#fill with your python version, min required is 3
+python_version="3.6" 
 
 usage() {
     echo "Usage: $(basename $0) <Url_to_spotify_song_or_playlist>"
@@ -21,7 +23,7 @@ download_spotify() {
     [ -x pip ] && sudo -H pip install -U pipenv python3-distutils
     mkdir -p ${spotify_directory}
     cd ${spotify_directory}
-    pipenv --python 3.6 install spotdl
+    pipenv --python ${python_version} install spotdl
 }
 
 main() {
