@@ -1,6 +1,7 @@
 #!/bin/bash
 spotify_directory=~/spotify
-run_spotdl="pipenv run spotdl"
+folder_to_write=~/Muzyka/Spotify
+run_spotdl="pipenv run spotdl -f ${folder_to_write}"
 #fill with your python version, min required is 3
 python_version="3.6" 
 
@@ -20,7 +21,7 @@ download_song() {
 }
 
 download_spotify() {
-    [ -x pip ] && sudo -H pip install -U pipenv python3-distutils
+    [ -x pip ] && sudo -H pip install -U pipenv python3-distutils ffmpeg
     mkdir -p ${spotify_directory}
     cd ${spotify_directory}
     pipenv --python ${python_version} install spotdl
