@@ -1,2 +1,2 @@
 script_dir=/home/marcin/skrypty
-alias spotify='bash ${script_dir}/spotify-download.sh'
+alias music='bash ${script_dir}/music-download.sh'

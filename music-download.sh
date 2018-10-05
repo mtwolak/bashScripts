@@ -1,12 +1,13 @@
 #!/bin/bash
 spotify_directory=~/spotify
-folder_to_write=~/Muzyka/Spotify
+folder_to_write=~/Muzyka/Download
 run_spotdl="pipenv run spotdl -f ${folder_to_write}"
+file_manager="caja --no-desktop --browser ${folder_to_write}"
 #fill with your python version, min required is 3
 python_version="3.6" 
 
 usage() {
-    echo "Usage: $(basename $0) <Url_to_spotify_song_or_playlist>"
+    echo "Usage: $(basename $0) <Url_to_spotify_or_youtube_song>"
 }
 
 download_playlist() {
@@ -32,8 +33,10 @@ main() {
     cd ${spotify_directory}
     if [[ $1 = *"playlist"* ]]; then
         download_playlist $1
-    elif [[ $1 = *"track"* ]]; then
+        ${file_manager}
+    elif [[ $1 = *"track"* ]] || [[ $1 = *"youtube"* ]]; then
         download_song $1
+        ${file_manager}
     else
         echo "Given URL does not contain playlists or track, exiting."
         exit 1
@@ -47,5 +50,4 @@ if [ "$#" -ne 1 ]; then
 else
     main $1
 fi
-
 
