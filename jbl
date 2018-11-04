@@ -1,0 +1,4 @@
+#https://superuser.com/questions/465472/how-to-connect-bluetooth-headset-via-command-line-on-ubuntu-12-04
+jblId="B8:D5:0B:C7:B8:89" #run bluetoothctl and then scan to get id
+alias jblConnect="echo \"connect $jblId\" | bluetoothctl"
+alias jblDisconnect="echo \"disconnect $jblId\" | bluetoothctl"

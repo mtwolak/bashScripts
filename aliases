@@ -1,2 +1,3 @@
-script_dir=/home/marcin/skrypty
+script_dir=/home/marcin/bashScripts
+source jbl
 alias music='bash ${script_dir}/music-download.sh'

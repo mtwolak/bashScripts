@@ -1,6 +1,6 @@
 #!/bin/bash
 spotify_directory=~/spotify
-folder_to_write=~/Muzyka/Download
+folder_to_write="/home/marcin/MojaMuzyka"
 run_spotdl="pipenv run spotdl -f ${folder_to_write}"
 file_manager="caja --no-desktop --browser ${folder_to_write}"
 #fill with your python version, min required is 3
@@ -13,6 +13,7 @@ usage() {
 download_playlist() {
     ${run_spotdl} --playlist $1
     local playlist_name=$(ls *.txt)
+    echo $playlist_name
     ${run_spotdl} --list ${playlist_name}
     rm ${playlist_name}
 }
