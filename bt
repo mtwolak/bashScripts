@@ -3,6 +3,9 @@ jblId="B8:D5:0B:C7:B8:89" #run bluetoothctl and then scan to get id
 xbt="10:4F:A8:33:18:70"
 jblExtremeId="00:42:79:EE:47:6F"
 
+disconnect_bt() {
+	echo "disconnect $1" | bluetoothctl
+}
 
 restart_bt () {
 	echo "disconnect $1" | bluetoothctl
@@ -10,6 +13,9 @@ restart_bt () {
 	echo "connect $1" | bluetoothctl
 }
 
+alias extremeDisconnect="disconnect_bt $jblExtremeId"
 alias extremeJbl="restart_bt $jblExtremeId"
-alias chargeJbl="restart_bt $jblId"
+alias charge="restart_bt $jblId"
+alias chargeDisconnect="disconnect_bt $jblId"
 alias xbt="restart_bt $xbt"
+alias xbtDisconnect="disconnect_bt $xbt"
